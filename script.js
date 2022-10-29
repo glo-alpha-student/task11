@@ -21,7 +21,6 @@ const getNewCollor = function () {
     }
 
     square.style.backgroundColor = text.value;
-
     text.value = null;
 };
 const newValue = function () {
