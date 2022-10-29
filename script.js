@@ -1,3 +1,4 @@
+'use strict';
 const button = document.getElementById('btn');
 const text = document.getElementById('text');
 const square = document.getElementById('square');
@@ -13,8 +14,9 @@ byeButton.style.display = "none";
 
 const getNewCollor = function () {
 
-    while (text.value === null || text.value === "") {
+    while (text.value === null || text.value.trim() === '') {
         alert("it's empty tho");
+        text.value = null;
         return false;
     }
 
