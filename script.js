@@ -1,37 +1,32 @@
-const controls = document.querySelectorAll('.controls');
-const button = controls[0].querySelector('#btn');
-const text = controls[2].querySelector('#text');
-const square = controls[4].querySelector('#square');
-const range = controls[1].querySelector('#range');
-const span = controls[1].querySelector('#range-span');
-const circle = controls[4].querySelector('#circle');
-const byeButton = circle.querySelector('#e_btn');
+const button = document.getElementById('btn');
+const text = document.getElementById('text');
+const square = document.getElementById('square');
+const range = document.getElementById('range');
+const span = document.getElementById('range-span');
+const circle = document.getElementById('circle');
+const byeButton = document.getElementById('e_btn');
 
+range.value = 0;
+circle.style.width = 0;
+circle.style.height = 0;
 byeButton.style.display = "none";
 
-const color = function (event) {
+const getNewCollor = function () {
 
-    const change = function () {
-        square.style.backgroundColor = event.target.value;
+    while (text.value === null || text.value === "") {
+        alert('enter a color');
+        return false;
+    }
 
-    };
+    square.style.backgroundColor = text.value;
 
-    button.addEventListener('click', change);
-
+    text.value = null;
 };
-const newCircle = function (event) {
-
-    const newScale = span.textContent = event.target.value;
-
-    const newValue = function () {
-
-        circle.style.width = newScale + "%";
-        circle.style.height = newScale + "%";
-    };
-
-    newValue();
-
+const newValue = function () {
+    span.textContent = range.value;
+    circle.style.width = range.value + "%";
+    circle.style.height = range.value + "%";
 };
 
-range.addEventListener('input', newCircle);
-text.addEventListener('input', color);
+button.addEventListener('click', getNewCollor);
+range.addEventListener('input', newValue);
