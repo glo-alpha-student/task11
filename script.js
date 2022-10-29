@@ -14,7 +14,7 @@ byeButton.style.display = "none";
 const getNewCollor = function () {
 
     while (text.value === null || text.value === "") {
-        alert('enter a color');
+        alert("it's empty tho");
         return false;
     }
 
