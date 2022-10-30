@@ -7,27 +7,28 @@ const span = document.getElementById('range-span');
 const circle = document.getElementById('circle');
 const byeButton = document.getElementById('e_btn');
 
-range.value = 0;
-circle.style.width = 0;
-circle.style.height = 0;
 byeButton.style.display = "none";
 
 const getNewCollor = function () {
 
-    while (text.value === null || text.value.trim() === '') {
+
+    if (text.value.trim() === '') {
         alert("it's empty tho");
-        text.value = null;
+        text.value = '';
         return false;
     }
 
     square.style.backgroundColor = text.value;
-    text.value = null;
+    text.value = '';
 };
 const newValue = function () {
-    span.textContent = range.value;
+    span.textContent = range.value + " килотонн";
     circle.style.width = range.value + "%";
     circle.style.height = range.value + "%";
 };
+
+
+newValue();
 
 button.addEventListener('click', getNewCollor);
 range.addEventListener('input', newValue);
